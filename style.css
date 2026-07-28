@@ -1,0 +1,367 @@
+:root {
+  --bg: #f0f4f8;
+  --card-bg: rgba(255, 255, 255, 0.78);
+  --text: #1a202c;
+  --text-muted: #4a5568;
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --accent: #8b5cf6;
+  --border: rgba(148, 163, 184, 0.3);
+  --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.12);
+  --header-bg: rgba(255, 255, 255, 0.88);
+  --flash-front: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  --flash-back: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --card-bg: rgba(30, 41, 59, 0.85);
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --primary: #60a5fa;
+  --primary-dark: #3b82f6;
+  --accent: #a78bfa;
+  --border: rgba(71, 85, 105, 0.5);
+  --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.45);
+  --header-bg: rgba(15, 23, 42, 0.92);
+  --flash-front: linear-gradient(135deg, #1e40af, #6d28d9);
+  --flash-back: #1e293b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  transition: background 0.3s, color 0.3s;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.12) 0px, transparent 50%);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--header-bg);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.85rem 0;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--primary);
+}
+
+.theme-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Cards gerais */
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  margin: 1.75rem 0;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.card h2 {
+  font-size: 1.45rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.card p, .card li {
+  color: var(--text-muted);
+  margin-bottom: 0.7rem;
+}
+
+.card ul, .card ol {
+  padding-left: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.card strong {
+  color: var(--text);
+}
+
+/* Accordion */
+.accordion {
+  margin-bottom: 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.accordion-btn {
+  width: 100%;
+  text-align: left;
+  padding: 0.9rem 1.1rem;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-btn:hover {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.accordion-btn::after {
+  content: '+';
+  font-size: 1.3rem;
+  color: var(--primary);
+}
+
+.accordion.active .accordion-btn::after {
+  content: '−';
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  padding: 0 1.1rem;
+}
+
+.accordion.active .accordion-content {
+  max-height: 700px;
+  padding-bottom: 1.1rem;
+}
+
+/* Fórmulas */
+.formula {
+  background: rgba(59, 130, 246, 0.08);
+  border-left: 4px solid var(--primary);
+  padding: 0.9rem 1.2rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+  overflow-x: auto;
+}
+
+.formula-small {
+  font-size: 0.95rem;
+  margin-top: 0.6rem;
+}
+
+/* Tabelas */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th, td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+tr:hover td {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+/* ========== FLASHCARDS ========== */
+.flash-instruction {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem !important;
+  opacity: 0.8;
+}
+
+.flashcards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.flashcard {
+  height: 240px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 14px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.flashcard-front {
+  background: var(--flash-front);
+  color: white;
+  text-align: center;
+}
+
+.flashcard-front h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.8rem;
+}
+
+.flashcard-front p {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.card-number {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.25);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.flashcard-back {
+  background: var(--flash-back);
+  color: var(--text);
+  transform: rotateY(180deg);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.flashcard-back p {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Dicas */
+.tips {
+  border-left: 5px solid var(--accent);
+}
+
+.apps-list li {
+  margin-bottom: 0.55rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+/* Animações */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  .flashcards-grid {
+    grid-template-columns: 1fr;
+  }
+}

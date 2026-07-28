@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prisma Óptico — Conteúdo Completo + Flashcards</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <h1 class="logo">Prisma Óptico</h1>
+      <nav class="nav">
+        <a href="#intro">Introdução</a>
+        <a href="#principios">Princípios</a>
+        <a href="#dispersao">Dispersão</a>
+        <a href="#tir">TIR</a>
+        <a href="#tipos">Tipos</a>
+        <a href="#newton">Newton</a>
+        <a href="#flashcards">Flashcards</a>
+        <a href="#formulas">Fórmulas</a>
+      </nav>
+      <button id="theme-toggle" class="theme-btn" aria-label="Alternar tema">🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 1. Introdução -->
+    <section id="intro" class="card">
+      <h2>1. O que é um Prisma Óptico?</h2>
+      <p>Um prisma óptico é um bloco de material transparente (geralmente vidro, quartzo ou plástico óptico) com faces planas e polidas, tipicamente em formato de prisma triangular. Sua função principal é desviar, dispersar ou refletir a luz por meio da refração e/ou reflexão interna total.</p>
+      <p>O tipo mais comum é o <strong>prisma triangular de ângulo de refringência A</strong> (o ângulo entre as duas faces refratoras).</p>
+    </section>
+
+    <!-- 2. Princípios -->
+    <section id="principios" class="card">
+      <h2>2. Princípios Físicos Fundamentais</h2>
+
+      <div class="accordion">
+        <button class="accordion-btn">2.1 Refração da Luz</button>
+        <div class="accordion-content">
+          <p>Quando a luz passa de um meio para outro (ex.: ar → vidro), sua velocidade muda e a trajetória se desvia. Isso é descrito pela <strong>Lei de Snell</strong>:</p>
+          <div class="formula">\[ n_1 \sin \theta_1 = n_2 \sin \theta_2 \]</div>
+          <ul>
+            <li>\( n_1 \) e \( n_2 \): índices de refração dos meios</li>
+            <li>\( \theta_1 \): ângulo de incidência</li>
+            <li>\( \theta_2 \): ângulo de refração</li>
+          </ul>
+          <p>No prisma, a luz sofre <strong>duas refrações</strong>: uma na face de entrada e outra na face de saída.</p>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn">2.2 Ângulo de Desvio (δ)</button>
+        <div class="accordion-content">
+          <p>O desvio total que o feixe sofre ao atravessar o prisma é:</p>
+          <div class="formula">\[ \delta = i + i' - A \]</div>
+          <ul>
+            <li>\( i \) = ângulo de incidência na primeira face</li>
+            <li>\( i' \) = ângulo de emergência na segunda face</li>
+            <li>\( A \) = ângulo de refringência do prisma</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn">2.3 Ângulo de Desvio Mínimo (δₘ)</button>
+        <div class="accordion-content">
+          <p>O desvio é mínimo quando o raio dentro do prisma é <strong>simétrico</strong> (ângulo de incidência = ângulo de emergência). Nessa condição:</p>
+          <div class="formula">\[ n = \frac{\sin\left(\frac{A + \delta_m}{2}\right)}{\sin\left(\frac{A}{2}\right)} \]</div>
+          <p>Essa fórmula permite calcular o índice de refração do material do prisma com grande precisão.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Dispersão -->
+    <section id="dispersao" class="card">
+      <h2>3. Dispersão da Luz</h2>
+      <p>A luz branca é composta por várias cores (espectro visível). Cada cor tem um comprimento de onda diferente (\( \lambda \)) e, portanto, um índice de refração ligeiramente diferente no vidro.</p>
+      <ul>
+        <li><strong>Violeta</strong> (menor \( \lambda \)) → maior desvio</li>
+        <li><strong>Vermelho</strong> (maior \( \lambda \)) → menor desvio</li>
+      </ul>
+      <p>Resultado: a luz branca se separa em um arco-íris (espectro contínuo). Esse fenômeno é chamado <strong>dispersão cromática</strong>.</p>
+      <p>Poder dispersivo de um material:</p>
+      <div class="formula">\[ \omega = \frac{n_F - n_C}{n_D - 1} \]</div>
+      <p>Onde \( n_F \), \( n_C \) e \( n_D \) são os índices de refração para as linhas de Fraunhofer F (azul), C (vermelho) e D (amarelo).</p>
+    </section>
+
+    <!-- 4. TIR -->
+    <section id="tir" class="card">
+      <h2>4. Reflexão Interna Total (TIR)</h2>
+      <p>Quando a luz tenta sair de um meio mais denso (vidro) para um menos denso (ar) com ângulo de incidência maior que o <strong>ângulo crítico</strong> (\( \theta_c \)):</p>
+      <div class="formula">\[ \sin \theta_c = \frac{n_2}{n_1} \]</div>
+      <p>A luz é <strong>100% refletida</strong>. O prisma funciona como um espelho perfeito, sem perdas por absorção.</p>
+      <p>Essa propriedade é usada em:</p>
+      <ul>
+        <li>Prismas de Porro (binóculos)</li>
+        <li>Prismas de Amici (telescópios)</li>
+        <li>Prismas de pentágono (câmeras e periscópios)</li>
+      </ul>
+    </section>
+
+    <!-- 5. Tipos -->
+    <section id="tipos" class="card">
+      <h2>5. Tipos Principais de Prismas</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Função principal</th>
+              <th>Exemplo de uso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Prisma triangular</td>
+              <td>Dispersão e desvio</td>
+              <td>Espectrômetros</td>
+            </tr>
+            <tr>
+              <td>Prisma de Porro</td>
+              <td>Inversão de imagem 180° + encurtamento do caminho</td>
+              <td>Binóculos clássicos</td>
+            </tr>
+            <tr>
+              <td>Prisma de Amici</td>
+              <td>Inversão de imagem + dispersão controlada</td>
+              <td>Telescópios e espectroscópios</td>
+            </tr>
+            <tr>
+              <td>Prisma de pentágono</td>
+              <td>Desvio de 90° sem inversão</td>
+              <td>Câmeras SLR, periscópios</td>
+            </tr>
+            <tr>
+              <td>Prisma de Dove</td>
+              <td>Inversão de imagem sem desvio</td>
+              <td>Sistemas ópticos de alinhamento</td>
+            </tr>
+            <tr>
+              <td>Prisma de Wollaston</td>
+              <td>Separação de polarização</td>
+              <td>Polarimetria</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6. Newton -->
+    <section id="newton" class="card">
+      <h2>6. Experimento Histórico de Newton (1666)</h2>
+      <p>Isaac Newton demonstrou que a luz branca <strong>não é pura</strong>, mas composta por todas as cores:</p>
+      <ol>
+        <li>Fez a luz solar passar por um prisma → obteve o espectro colorido.</li>
+        <li>Isolou uma cor e passou por um segundo prisma → a cor não se dividiu mais.</li>
+        <li>Usou um segundo prisma invertido → recombinou as cores em luz branca novamente.</li>
+      </ol>
+      <p>Esse experimento destruiu a teoria de que as cores eram “modificações” da luz branca e fundou a óptica moderna.</p>
+    </section>
+
+    <!-- ===================== FLASHCARDS ===================== -->
+    <section id="flashcards" class="card">
+      <h2>Flashcards de Estudo</h2>
+      <p class="flash-instruction">Clique no card para virar</p>
+
+      <div class="flashcards-grid">
+
+        <!-- Card 1 -->
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <span class="card-number">1</span>
+              <h3>Refração da Luz</h3>
+              <p>O que é a Refração da Luz em um prisma?</p>
+            </div>
+            <div class="flashcard-back">
+              <p>É a mudança na velocidade e na trajetória da luz ao passar de um meio para o outro (ex: do ar para o vidro). É calculada pela Lei de Snell:</p>
+              <div class="formula-small">\[ n_1 \sin \theta_1 = n_2 \sin \theta_2 \]</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <span class="card-number">2</span>
+              <h3>Dispersão da Luz</h3>
+              <p>Como ocorre a Dispersão da Luz Branca?</p>
+            </div>
+            <div class="flashcard-back">
+              <p>Cada cor da luz possui um comprimento de onda diferente (\( \lambda \)). O vidro desvia mais o violeta (menor \( \lambda \)) e menos o vermelho (maior \( \lambda \)), separando a luz no arco-íris.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <span class="card-number">3</span>
+              <h3>Reflexão Interna Total</h3>
+              <p>O que é Reflexão Interna Total em um prisma?</p>
+            </div>
+            <div class="flashcard-back">
+              <p>Quando a luz atinge a parede interna com um ângulo maior que o ângulo crítico, ela reflete 100% como se o prisma fosse um espelho perfeito.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <span class="card-number">4</span>
+              <h3>Experimento de Newton</h3>
+              <p>O que Isaac Newton provou com o prisma em 1666?</p>
+            </div>
+            <div class="flashcard-back">
+              <p>Newton provou que a luz branca é composta por todas as cores. Ele usou um prisma para separar as cores e um segundo prisma invertido para juntá-las de volta em luz branca.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <span class="card-number">5</span>
+              <h3>Prisma de Porro</h3>
+              <p>Para que serve o Prisma de Porro nos binóculos?</p>
+            </div>
+            <div class="flashcard-back">
+              <p>Ele usa a reflexão interna total para inverter a imagem em 180° (deixando-a na posição correta) e encurtar o caminho da luz dentro do aparelho.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <span class="card-number">6</span>
+              <h3>Ângulo de Desvio Mínimo</h3>
+              <p>O que é o Ângulo de Desvio Mínimo (\( \delta_m \))?</p>
+            </div>
+            <div class="flashcard-back">
+              <p>É o menor ângulo de curvatura do feixe de luz ao atravessar o prisma. Ocorre quando a trajetória do raio dentro do prisma é perfeitamente simétrica.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. Aplicações -->
+    <section id="aplicacoes" class="card">
+      <h2>7. Aplicações Práticas</h2>
+      <ul class="apps-list">
+        <li><strong>Espectroscopia:</strong> análise da composição química de materiais e estrelas</li>
+        <li><strong>Binóculos e telescópios:</strong> correção de imagem e redução de comprimento do tubo</li>
+        <li><strong>Câmeras e periscópios:</strong> desvio de caminho óptico</li>
+        <li><strong>Instrumentos de precisão:</strong> medição de índice de refração</li>
+        <li><strong>Fibras ópticas e lasers:</strong> manipulação de feixes</li>
+        <li><strong>Óculos e lentes especiais:</strong> correção de aberrações cromáticas</li>
+      </ul>
+    </section>
+
+    <!-- 8. Fórmulas -->
+    <section id="formulas" class="card">
+      <h2>8. Resumo das Fórmulas Essenciais</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Conceito</th>
+              <th>Fórmula</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lei de Snell</td>
+              <td>\( n_1 \sin \theta_1 = n_2 \sin \theta_2 \)</td>
+            </tr>
+            <tr>
+              <td>Ângulo crítico</td>
+              <td>\( \sin \theta_c = \frac{n_2}{n_1} \)</td>
+            </tr>
+            <tr>
+              <td>Desvio total</td>
+              <td>\( \delta = i + i' - A \)</td>
+            </tr>
+            <tr>
+              <td>Desvio mínimo</td>
+              <td>\( n = \dfrac{\sin\left(\frac{A+\delta_m}{2}\right)}{\sin\left(\frac{A}{2}\right)} \)</td>
+            </tr>
+            <tr>
+              <td>Poder dispersivo</td>
+              <td>\( \omega = \dfrac{n_F - n_C}{n_D - 1} \)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 9. Dicas -->
+    <section class="card tips">
+      <h2>9. Dicas de Estudo Rápido</h2>
+      <ul>
+        <li>Lembre-se: quanto maior o índice de refração e o ângulo \( A \), maior o desvio.</li>
+        <li>Dispersão ocorre porque \( n \) depende de \( \lambda \) (dispersão material).</li>
+        <li>TIR só acontece quando a luz vai de meio mais denso para menos denso.</li>
+        <li>No desvio mínimo o raio interno é simétrico → facilita cálculos.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Conteúdo educativo sobre Prisma Óptico • Flashcards inclusos</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
