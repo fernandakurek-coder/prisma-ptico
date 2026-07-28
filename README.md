@@ -1,1 +1,1 @@
-# prisma-ptico
+# prisma-optico
